@@ -3,3 +3,4 @@ build/
 bin/
 obj/
 deploy/
+glibc-2.39/

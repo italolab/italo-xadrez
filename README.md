@@ -6,13 +6,14 @@ Veja abaixo uma captura de tela do jogo em execução:
 
 Este jogo de xadrez foi construído em C++. 
 
+
+Atenção: essas versões do sistema foram compiladas em arquitetura "x86_64". Não foi criada ainda versão para arquitetura "i686".
+
 ## Executando no windows
 
 Para executar no windows, basta baixar o instalador na release mais recente do repositório. O instalador tem o nome: "italo-xadrez-x.x-win32.exe", onde o x.x é a versão do projeto. 
 
 Para executar no windows sem instalador, basta baixar a versão zipada para windows na release mais recente do repositório e descompactar e executar o arquivo "italo-xadrez.exe". Por exemplo, o arquivo zipado deve ter o nome: "italo-xadrez-x.x-win32.zip" onde o x.x é a versão do projeto.
-
-Atenção: essas versões para windows foram compiladas com arquitetura "x86_64". Não foi criada ainda versão para arquitetura "i686".
 
 ## Executando no linux
 

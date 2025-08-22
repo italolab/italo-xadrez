@@ -1,16 +1,18 @@
-is.dll=false
+$target=release
+$version=2.2
 
 compiler=g++
 exe.file.name=italo-xadrez-app
 
-$target=release
-$version=2.2
+src.dir=src
+build.dir=build/italo-xadrez-$(version)
+
+build.files=icon.ico icon.xpm assets/
 
 $debug_bin_dir=bin/Debug
 $debug_obj_dir=obj/Debug
 $debug_compiler_params=-Wall -fexceptions -g -std=c++17
 $debug_linker_params=\$(sdl2-config --cflags --libs)
-
 
 $release_bin_dir=bin/Release
 $release_obj_dir=obj/Release
@@ -23,13 +25,8 @@ obj.dir=$($(target)_obj_dir)
 compiler.params=$($(target)_compiler_params)
 linker.params=$($(target)_linker_params)
 
-src.dir=src
-build.dir=build/italo-xadrez-$(version)-linux
-
-build.files=icon.ico icon.xpm assets/
-
-lib.dirs=. /lib/x86_64-linux-gnu /usr/lib
-include.dirs=
+lib.dirs=. lib /lib/x86_64-linux-gnu /usr/lib
+include.dirs=include
 libs=SDL2main SDL2 SDL2_mixer SDL2_image SDL2_ttf
 #defines=
 
