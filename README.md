@@ -66,10 +66,10 @@ sudo apt -y install libsdl2-ttf-dev
 Ou executar o seguinte script:
 
 ```
-./install-deps install dev
+./install-deps.sh install dev
 ```
 
-Feito isto, com o SDL2, o SDL2 mixer, o SDL2 image e o SDL2-ttf instalados, basta 
+Feito isto, com o SDL2, o SDL2 mixer, o SDL2 image e o SDL2 ttf instalados, basta 
 executar o seguinte script na raiz do projeto:
 
 ```
@@ -79,7 +79,7 @@ executar o seguinte script na raiz do projeto:
 Esse script utiliza um programa que criei: o "cbuild", que pode ser utilizado 
 para build automático de aplicações C/C++.
 
-Agora, o software está na basta "build/italo-xadrez-x.x", onde o "x.x" é a versão do projeto. Para executar o programa, basta entrar nessa pasta e executar como a seguir:
+Caso o build ocorra com sucesso, o software estará na pasta "build/italo-xadrez-x.x", onde o "x.x" é a versão do projeto. Para executar o programa, basta entrar nessa pasta e executar como a seguir:
 
 ```
 cd build/italo-xadrez-2.2
@@ -88,11 +88,11 @@ cd build/italo-xadrez-2.2
 
 Esse exemplo é para o caso da versão ser a "2.2"!
 
-# Compilando e linkando no windows
+## Compilando e linkando no windows
 
-Para compilar no windows, você pode utilizar o MinGW, arquitetura x86_64. 
+Para compilar no windows, você pode utilizar o MinGW. 
 
-Além do mingw, o projeto depende das bibliotecas: SDL2, SDL2_ttf, SDL2_mixer, SDL2_image. Essas bibliotecas (para compilar e linkar no windows) estão nas pastas "include" e "lib". Então vamos lá:
+Além do mingw, o projeto depende das bibliotecas: SDL2, SDL2_ttf, SDL2_mixer, SDL2_image. Essas bibliotecas (para compilar e linkar no windows) e os arquivos de cabeçalho estão, respectivamente, nas pastas "lib" e "include". Então vamos lá:
 
 Se quiser desenvolver alguma aplicação em SDL2 com suporte a imagens, audio e fontes de texto, pode entrar no site: https://libsdl.org/ e baixar as seguintes bibliotecas:
 
@@ -103,10 +103,9 @@ Se quiser desenvolver alguma aplicação em SDL2 com suporte a imagens, audio e 
     SDL2_ttf
 ```
 
-Os arquivos necessários dessas bibliotecas já estão inclusos no projeto nas pastas "include" e 
-"lib".
+Os arquivos necessários dessas bibliotecas já estão inclusos no projeto nas pastas "include" e "lib".
 		
-Agora é só compilar, linkar e concluír o build utilizando o cbuild. Então execute o seguinte comando:
+Muito bem, vamos compilar, linkar e concluír o build utilizando o cbuild. Então execute o seguinte comando:
 
 ```
 .\cbuild.exe buildall --settings-file=settings-windows.txt
@@ -118,6 +117,12 @@ Ou execute o script conforme a seguir:
 .\buildapp.bat
 ```
 
-Se tudo correr bem, o projeto linkado e os arquivos necessários para ele funcionar deverão ser copiados para pasta: "build/italo-xadrez-x.x-windows-x86", onde x.x é a versão do projeto.
+Se tudo correr bem, o projeto linkado e os arquivos necessários para ele funcionar deverão ser copiados para pasta: "build/italo-xadrez-x.x-windows-x64", onde x.x é a versão do projeto.
 
-Para executar, é só entrar na pasta "build/italo-xadrez-x.x-windows-x86" e executar o programa "italo-xadrez.exe"
+Para executar, é só entrar na pasta "build/italo-xadrez-x.x-windows-x64" e executar o programa "italo-xadrez.exe"
+
+## Concluindo
+
+Bem, para concluír, confesso que foi um desafio e tanto produzir esse software para 
+windows e linux. Eu produzi esse jogo em 2022 e, neste ano de 2025, precisei consertar 
+um bug que havia nele que fazia o programa crashar no linux.
