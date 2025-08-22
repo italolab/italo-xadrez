@@ -25,8 +25,8 @@ obj.dir=$($(target)_obj_dir)
 compiler.params=$($(target)_compiler_params)
 linker.params=$($(target)_linker_params)
 
-lib.dirs=. /lib/x86_64-linux-gnu /usr/lib
-include.dirs=
+lib.dirs=. lib /lib/x86_64-linux-gnu /usr/lib
+include.dirs=include
 libs=SDL2main SDL2 SDL2_mixer SDL2_image SDL2_ttf
 #defines=
 

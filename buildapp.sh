@@ -13,10 +13,12 @@ LIBS_DIR=$APP_DIR/libs
 APP_FILE=$APP_DIR/italo-xadrez-app
 SCRIPT_APP_FILE=$APP_DIR/$SCRIPT_APP_FILE_NAME
 
-rm -r $GLIBC_FOLDER
+if [ -d "$GLIBC_FOLDER" ]; then
+    rm -r $GLIBC_FOLDER
+fi
+
 tar -xf "$GLIBC_FOLDER.tar.gz"
 echo "Extraido: $GLIBC_FOLDER.tar.gz"
-
 
 if [ -d "$APP_DIR" ]; then
     echo
@@ -39,6 +41,8 @@ ldd $APP_FILE | while read -r file; do
     fi
 done
 
+echo
+
 cp $SCRIPT_APP_FILE_NAME $SCRIPT_APP_FILE
 echo "Copiado: $SCRIPT_APP_FILE_NAME para pasta de build"
 
@@ -46,14 +50,14 @@ cp -r $GLIBC_FOLDER $APP_DIR/$GLIBC_FOLDER
 echo "Copiado: $GLIBC_FOLDER para pasta de build"
 
 if [ -f "$APP_DIR.tar.gz" ]; then
-    echo ""
+    echo
     rm "$APP_DIR.tar.gz"
     echo "Removido: $APP_DIR.tar.gz"
 fi
 
 cd $BUILD_FOLDER
 
-echo ""
+echo
 echo "Empacotando... $APP_DIR.tar.gz"
 
 tar -czf "$APP_FOLDER.tar.gz" $APP_FOLDER
@@ -61,6 +65,6 @@ echo "Criado: $APP_DIR.tar.gz"
 
 cd ..
 
-echo ""
+echo
 echo "Build concluido!"
 echo "Execute: $SCRIPT_APP_FILE"
