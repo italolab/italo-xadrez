@@ -1,0 +1,4 @@
+/* GNU ld script
+*/
+OUTPUT_FORMAT(elf64-x86-64)
+GROUP ( /home/italo/Downloads/glibc/lib/libm.so.6  AS_NEEDED ( /home/italo/Downloads/glibc/lib/libmvec.so.1 ) )

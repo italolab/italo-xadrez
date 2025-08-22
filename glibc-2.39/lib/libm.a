@@ -1,0 +1,4 @@
+/* GNU ld script
+*/
+OUTPUT_FORMAT(elf64-x86-64)
+GROUP ( /home/italo/Downloads/glibc/lib/libm-2.39.a /home/italo/Downloads/glibc/lib/libmvec.a )

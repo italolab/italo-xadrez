@@ -1,0 +1,34 @@
+is.dll=false
+
+compiler=g++
+exe.file.name=italo-xadrez.exe
+
+$target=release
+$version=2.2
+
+$debug_bin_dir=bin/Debug
+$debug_obj_dir=obj/Debug
+$debug_compiler_params=-Wall -fexceptions -g -std=c++17
+$debug_linker_params=-mwindows
+
+
+$release_bin_dir=bin/Release
+$release_obj_dir=obj/Release
+$release_compiler_params=-Wall -fexceptions -O2 -std=c++17
+$release_linker_params=windows/resources/icon.res -s -mwindows
+
+
+bin.dir=$($(target)_bin_dir)
+obj.dir=$($(target)_obj_dir)
+compiler.params=$($(target)_compiler_params)
+linker.params=$($(target)_linker_params)
+
+src.dir=src
+build.dir=build/italo-xadrez-$(version)-windows
+
+build.files=icon.ico assets/ windows/lib/SDL2.dll windows/lib/SDL2_mixer.dll windows/lib/SDL2_image.dll windows/lib/SDL2_ttf.dll
+
+include.dirs=windows/include
+lib.dirs=windows/lib/
+libs=mingw32 SDL2main SDL2 SDL2_mixer SDL2_image SDL2_ttf
+#defines=
