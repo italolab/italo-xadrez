@@ -103,7 +103,7 @@ Se quiser desenvolver alguma aplicação em SDL2 com suporte a imagens, audio e 
     SDL2_ttf
 ```
 
-Os arquivos necessários dessas bibliotecas já estão inclusos no projeto nas pastas "include" e "lib".
+Claro, essas versões do SDL2 são necessárias para este projeto. Caso queira desenvolver o próprio, vai utilizar o SDL3 ou superior, caso já exista. Os arquivos necessários do SDL para compilar e linkar já estão inclusos no projeto nas pastas "include" e "lib".
 		
 Muito bem, vamos compilar, linkar e concluír o build utilizando o cbuild. Então execute o seguinte comando:
 
