@@ -8,7 +8,7 @@
 void JogoAudio::inicializa() {
 	bool fontResult = Mix_SetSoundFonts( sounds::FONT.c_str() );
 	if ( !fontResult )
-		std::cerr << "Erro na inicializacao do mixer de audio.\n" << Mix_GetError() << std::endl;				
+		std::cerr << "Erro na inicializacao da fonte de audio.\n" << Mix_GetError() << std::endl;				
 
 	numAudio = AUDIO_NENHUM;		
 	
