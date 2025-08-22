@@ -111,4 +111,4 @@ Ou execute o script conforme a seguir:
 Se tudo correr bem, o projeto linkado e os arquivos necessários para ele funcionar deverão ser 
 copiados para pasta: "build/italo-xadrez-x.x-win32", onde x.x é a versão do projeto.
 
-Para executar, é só entrar na pasta "buils/italo-xadrez-x.x-win32" e executar o programa "italo-xadrez.exe"
+Para executar, é só entrar na pasta "build/italo-xadrez-x.x-win32" e executar o programa "italo-xadrez.exe"
