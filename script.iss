@@ -7,6 +7,8 @@
 #define MyAppURL "https://github.com/italoherbert/italo-xadrez"
 #define MyAppExeName "italo-xadrez.exe"
 
+#define WindowsArch "windows-x64"
+
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
@@ -32,8 +34,8 @@ DisableProgramGroupPage=yes
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
 OutputDir=deploy
-OutputBaseFilename=italo-xadrez-2.2-win32
-SetupIconFile=build\italo-xadrez-2.2-win32\icon.ico
+OutputBaseFilename=italo-xadrez-2.2-{#WindowsArch}
+SetupIconFile=build\italo-xadrez-2.2-{#WindowsArch}\icon.ico
 SolidCompression=yes
 WizardStyle=modern
 
@@ -45,13 +47,13 @@ Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "build\italo-xadrez-2.2-win32\assets\*"; DestDir: "{app}\assets"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "build\italo-xadrez-2.2-win32\icon.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\italo-xadrez-2.2-win32\italo-xadrez.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\italo-xadrez-2.2-win32\SDL2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\italo-xadrez-2.2-win32\SDL2_image.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\italo-xadrez-2.2-win32\SDL2_mixer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\italo-xadrez-2.2-win32\SDL2_ttf.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\italo-xadrez-2.2-{#WindowsArch}\assets\*"; DestDir: "{app}\assets"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "build\italo-xadrez-2.2-{#WindowsArch}\icon.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\italo-xadrez-2.2-{#WindowsArch}\italo-xadrez.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\italo-xadrez-2.2-{#WindowsArch}\SDL2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\italo-xadrez-2.2-{#WindowsArch}\SDL2_image.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\italo-xadrez-2.2-{#WindowsArch}\SDL2_mixer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\italo-xadrez-2.2-{#WindowsArch}\SDL2_ttf.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
