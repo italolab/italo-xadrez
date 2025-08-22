@@ -4,3 +4,5 @@ bin/
 obj/
 deploy/
 glibc-2.39/
+
+deb/opt/

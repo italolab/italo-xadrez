@@ -26,7 +26,29 @@ Para executar no windows sem instalador, basta baixar a versão zipada para wind
 
 ## Executando no linux
 
-Para executar em alguma distribuição linux, basta baixar o arquivo de nome: "italo-xadrez-x.x.tar.gz" na release mais recente do repositório e descompactar e executar o script "italo-xadrez". Exemplo;
+Para executar em alguma distribuição linux compativel com o x86_64, você pode baixar a versão .deb, se estiver no debian (ou derivados), ou baixar o arquivo de nome: "italo-xadrez-x.x-x64.tar.gz". Ambos podem ser baixados da release mais recente do repositório.
+
+### Versão .deb
+
+Se preferir a <b>versão .deb</b>, faça o seguinte: Baixe o arquivo "italo-xadrez-x.x-x64.deb" e execute o seguinte comando:
+
+```
+sudo dpkg -i ./italo-xadrez-x.x-x64.deb
+```
+
+Agora você pode executar pelo terminal digitando: italo-xadrez, ou buscar no sistema pelo programa Italo Xadrez.
+
+Para desinstalar execute o seguinte:
+
+```
+sudo dpkg -r italo-xadrez
+```
+
+Lembrando que o x.x deve ser substituído pela versão.
+
+### Versão .tar.gz
+
+Se preferir a <b>versão .tar.gz</b>, baixe o arquivo "italo-xadrez-x.x-x64.tar.gz" e execute o seguinte:
 
 ```
 tar -xvf italo-xadrez-2.2.tar.gz
@@ -53,17 +75,17 @@ cd italo-xadrez-2.2
 ## Compilando e executando o build no linux?
 
 Para compilar, linkar e copiar as dependências para uma pasta "libs", é necessário 
-instalar o SDL2, versão de desenvolvimento, no seu sistema operacional linux. Se estiver 
-no ubuntu, pode executar os seguintes comandos:
+instalar o pacote build-essential e o SDL2, versão de desenvolvimento, no seu sistema operacional linux. Se estiver no ubuntu, pode executar os seguintes comandos:
 
 ```
+sudo apt -y install build-essential
 sudo apt -y install libsdl2-dev
 sudo apt -y install libsdl2-mixer-dev
 sudo apt -y install libsdl2-image-dev
 sudo apt -y install libsdl2-ttf-dev
 ```
 
-Ou executar o seguinte script:
+Ou instalar o build-essential e executar o seguinte script:
 
 ```
 ./install-deps.sh install dev
@@ -79,7 +101,7 @@ executar o seguinte script na raiz do projeto:
 Esse script utiliza um programa que criei: o "cbuild", que pode ser utilizado 
 para build automático de aplicações C/C++.
 
-Caso o build ocorra com sucesso, o software estará na pasta "build/italo-xadrez-x.x", onde o "x.x" é a versão do projeto. Para executar o programa, basta entrar nessa pasta e executar como a seguir:
+Caso o build ocorra com sucesso, o software estará na pasta "build/italo-xadrez-x.x-x64", onde o "x.x" é a versão do projeto. Para executar o programa, basta entrar nessa pasta e executar como a seguir:
 
 ```
 cd build/italo-xadrez-2.2
@@ -103,7 +125,7 @@ Se quiser desenvolver alguma aplicação em SDL2 com suporte a imagens, audio e 
     SDL2_ttf
 ```
 
-Claro, essas versões do SDL2 são necessárias para este projeto. Caso queira desenvolver o próprio, vai utilizar o SDL3 ou superior, caso já exista. Os arquivos necessários do SDL para compilar e linkar já estão inclusos no projeto nas pastas "include" e "lib".
+Claro, essas versões do SDL2 são necessárias para este projeto. Caso queira desenvolver o próprio, vai utilizar o SDL3 ou, caso já exista, uma versão superior. Os arquivos necessários do SDL para compilar e linkar já estão inclusos no projeto nas pastas "include" e "lib".
 		
 Muito bem, vamos compilar, linkar e concluír o build utilizando o cbuild. Então execute o seguinte comando:
 

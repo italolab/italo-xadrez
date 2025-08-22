@@ -5,7 +5,7 @@ compiler=g++
 exe.file.name=italo-xadrez-app
 
 src.dir=src
-build.dir=build/italo-xadrez-$(version)
+build.dir=build/italo-xadrez-$(version)-x64
 
 build.files=icon.ico icon.xpm assets/
 

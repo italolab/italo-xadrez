@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Italo Xadrez
+Version=2.2
+Exec=/opt/italo-xadrez-2.2/italo-xadrez
+Icon=/opt/italo-xadrez-2.2/icon.ico
+Type=Application
+Terminal=false
+Keywords=Xadrez;Games;C++
