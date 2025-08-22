@@ -1,6 +1,9 @@
 compiler=g++
 exe.file.name=italo-xadrez.exe
 
+build.dir=build/italo-xadrez-$(version)-windows-x64
+build.files=icon.ico assets/ lib/SDL2.dll lib/SDL2_mixer.dll lib/SDL2_image.dll lib/SDL2_ttf.dll
+
 $target=release
 $version=2.2
 
@@ -21,9 +24,6 @@ compiler.params=$($(target)_compiler_params)
 linker.params=$($(target)_linker_params)
 
 src.dir=src
-build.dir=build/italo-xadrez-$(version)-windows-x64
-
-build.files=icon.ico assets/ lib/SDL2.dll lib/SDL2_mixer.dll lib/SDL2_image.dll lib/SDL2_ttf.dll
 resource.file=icon.res
 
 include.dirs=include
