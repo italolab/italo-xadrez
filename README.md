@@ -7,13 +7,22 @@ Veja abaixo uma captura de tela do jogo em execução:
 Este jogo de xadrez foi construído em C++. 
 
 
-Atenção: essas versões do sistema foram compiladas em arquitetura "x86_64". Não foi criada ainda versão para arquitetura "i686".
+Atenção: essas versões do sistema foram compiladas para arquitetura "x86_64". Não foram criadas versões para arquitetura "i686" ou de 32 bits. A razão pra isto é que seria mais 
+difícil de manter tantas versões do sistema e, como sistemas de 32 bits e que funcionam em arquitetura i686 ou anterior são antigos, é pouco provável que um possível usuário do 
+Italo Xadrez esteja utilizando um sistema desses hoje em dia.
+
+Se estiver no linux e quiser saber a arquitetura do SO, basta digitar o seguinte comando 
+no terminal:
+
+```
+uname -m
+```
 
 ## Executando no windows
 
-Para executar no windows, basta baixar o instalador na release mais recente do repositório. O instalador tem o nome: "italo-xadrez-x.x-win32.exe", onde o x.x é a versão do projeto. 
+Para executar no windows, basta baixar o instalador na release mais recente do repositório. O instalador tem o nome: "italo-xadrez-x.x-windows-x64.exe", onde o x.x é a versão do projeto. 
 
-Para executar no windows sem instalador, basta baixar a versão zipada para windows na release mais recente do repositório e descompactar e executar o arquivo "italo-xadrez.exe". Por exemplo, o arquivo zipado deve ter o nome: "italo-xadrez-x.x-win32.zip" onde o x.x é a versão do projeto.
+Para executar no windows sem instalador, basta baixar a versão zipada para windows na release mais recente do repositório e descompactar e executar o arquivo "italo-xadrez.exe". Por exemplo, o arquivo zipado deve ter o nome: "italo-xadrez-x.x-windows-x64.zip" onde o x.x é a versão do projeto.
 
 ## Executando no linux
 
@@ -109,7 +118,6 @@ Ou execute o script conforme a seguir:
 .\buildapp.bat
 ```
 
-Se tudo correr bem, o projeto linkado e os arquivos necessários para ele funcionar deverão ser 
-copiados para pasta: "build/italo-xadrez-x.x-win32", onde x.x é a versão do projeto.
+Se tudo correr bem, o projeto linkado e os arquivos necessários para ele funcionar deverão ser copiados para pasta: "build/italo-xadrez-x.x-windows-x86", onde x.x é a versão do projeto.
 
-Para executar, é só entrar na pasta "build/italo-xadrez-x.x-win32" e executar o programa "italo-xadrez.exe"
+Para executar, é só entrar na pasta "build/italo-xadrez-x.x-windows-x86" e executar o programa "italo-xadrez.exe"
