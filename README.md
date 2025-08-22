@@ -8,9 +8,11 @@ Este jogo de xadrez foi construído em C++.
 
 ## Executando no windows
 
-Para executar no windows, basta baixar o instalador na release mais recente do repositório. O instalador tem o nome: "italo-xadrez-x.x-win32.exe", onde o x.x é a versão do projeto.
+Para executar no windows, basta baixar o instalador na release mais recente do repositório. O instalador tem o nome: "italo-xadrez-x.x-win32.exe", onde o x.x é a versão do projeto. 
 
 Para executar no windows sem instalador, basta baixar a versão zipada para windows na release mais recente do repositório e descompactar e executar o arquivo "italo-xadrez.exe". Por exemplo, o arquivo zipado deve ter o nome: "italo-xadrez-x.x-win32.zip" onde o x.x é a versão do projeto.
+
+Atenção: essas versões para windows foram compiladas com arquitetura "x86_64". Não foi criada ainda versão para arquitetura "i686".
 
 ## Executando no linux
 
@@ -93,11 +95,7 @@ Se quiser desenvolver alguma aplicação em SDL2 com suporte a imagens, audio e 
 
 Os arquivos necessários dessas bibliotecas já estão inclusos no projeto nas pastas "include" e 
 "lib".
-	
-Agora, verifique se seu MinGW compila para arquitetura x86_64 ou i686 e, ao descompactar 
-as bibliotecas baixadas, copie o conteúdo da pasta equivalente a arquitetura de 
-compilação do MinGW para a pasta raiz do MinGW ou para uma pasta separada. 
-	
+		
 Agora é só compilar, linkar e concluír o build utilizando o cbuild. Então execute o seguinte comando:
 
 ```
