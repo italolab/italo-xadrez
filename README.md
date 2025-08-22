@@ -124,5 +124,4 @@ Para executar, é só entrar na pasta "build/italo-xadrez-x.x-windows-x64" e exe
 ## Concluindo
 
 Bem, para concluír, confesso que foi um desafio e tanto produzir esse software para 
-windows e linux. Eu produzi esse jogo em 2022 e, neste ano de 2025, precisei consertar 
-um bug que havia nele que fazia o programa crashar no linux.
+windows e linux. A versão antiga para linux tinha um defeito que fazia o programa crashar e foi consertado nesta versão.
