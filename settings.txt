@@ -1,5 +1,3 @@
-is.dll=false
-
 compiler=g++
 exe.file.name=italo-xadrez.exe
 
@@ -11,11 +9,10 @@ $debug_obj_dir=obj/Debug
 $debug_compiler_params=-Wall -fexceptions -g -std=c++17
 $debug_linker_params=-mwindows
 
-
 $release_bin_dir=bin/Release
 $release_obj_dir=obj/Release
 $release_compiler_params=-Wall -fexceptions -O2 -std=c++17
-$release_linker_params=windows/resources/icon.res -s -mwindows
+$release_linker_params=-s -mwindows
 
 
 bin.dir=$($(target)_bin_dir)
@@ -24,11 +21,11 @@ compiler.params=$($(target)_compiler_params)
 linker.params=$($(target)_linker_params)
 
 src.dir=src
-build.dir=build/italo-xadrez-$(version)-windows
+build.dir=build/italo-xadrez-$(version)-win32
 
-build.files=icon.ico assets/ windows/lib/SDL2.dll windows/lib/SDL2_mixer.dll windows/lib/SDL2_image.dll windows/lib/SDL2_ttf.dll
+build.files=icon.ico assets/ lib/SDL2.dll lib/SDL2_mixer.dll lib/SDL2_image.dll lib/SDL2_ttf.dll
+resource.file=icon.res
 
-include.dirs=windows/include
-lib.dirs=windows/lib/
+include.dirs=include
+lib.dirs=lib/
 libs=mingw32 SDL2main SDL2 SDL2_mixer SDL2_image SDL2_ttf
-#defines=
