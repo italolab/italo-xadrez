@@ -1,9 +1,18 @@
 #!/bin/bash
 
+VERSION=2.2
+
+CONTROL_PACKAGE_NAME=italo-xadrez
+CONTROL_INSTALLED_SIZE=192512
+CONTROL_MAINTAINER="Italo Herbert Siqueira Gabriel (italoherbert@outlook.com)"
+CONTROL_DESCRIPTION="Trata-se de um jogo de xadrez com inteligência artificial"
+
+DESKTOP_APP_NAME="Italo Xadrez"
+
+
 BUILD_FOLDER=build
-APP_FOLDER=italo-xadrez-2.2-x64
+APP_FOLDER=italo-xadrez-$VERSION-x64
 GLIBC_FOLDER=glibc-2.39
-DEB_FOLDER=deb
 
 SCRIPT_APP_FILE_NAME=italo-xadrez
 
@@ -15,33 +24,36 @@ DEB_APP_DIR=$APP_DIR-deb
 APP_FILE=$APP_DIR/italo-xadrez-app
 SCRIPT_APP_FILE=$APP_DIR/$SCRIPT_APP_FILE_NAME
 
+DEB_SCRIPT_APP_FILE=/opt/$APP_FOLDER/$SCRIPT_APP_FILE_NAME
+DEB_DESKTOP_FILE=$DEB_APP_DIR/usr/share/applications/italo-xadrez.desktop
+DEB_CONTROL_FILE=$DEB_APP_DIR/DEBIAN/control
+
+# LIMPANDO...
+
 if [ -d "$GLIBC_FOLDER" ]; then
     rm -r $GLIBC_FOLDER
+    echo "Removido: $GLIBC_FOLDER"
 fi
 
 tar -xf "$GLIBC_FOLDER.tar.gz"
 echo "Extraido: $GLIBC_FOLDER.tar.gz"
 
 if [ -d "$APP_DIR" ]; then
-    echo
     rm -rf $APP_DIR
     echo "Removido: $APP_DIR"
 fi
 
 if [ -d "$DEB_APP_DIR" ]; then
-    echo
     rm -rf $DEB_APP_DIR
     echo "Removido: $DEB_APP_DIR"
 fi
 
 if [ -f "$APP_DIR.tar.gz" ]; then
-    echo
     rm "$APP_DIR.tar.gz"
     echo "Removido: $APP_DIR.tar.gz"
 fi
 
 if [ -f "$APP_DIR.deb" ]; then
-    echo
     rm "$APP_DIR.deb"
     echo "Removido: $APP_DIR.deb"
 fi
@@ -52,7 +64,11 @@ mkdir -p $DEB_APP_DIR
 
 echo
 
+# COMPILANDO...
+
 ./cbuild buildall --settings-file=settings-linux.txt
+
+# COPIANDO BIBLIOTECAS DINAMICAS DE QUE O EXECUTAVEL DEPENDE
 
 ldd $APP_FILE | while read -r file; do
     IFS=' ' read -r -a array <<< "$file"
@@ -62,6 +78,9 @@ ldd $APP_FILE | while read -r file; do
     fi
 done
 
+
+# COPIANDO O SCRIPT PRINCIPAL E A PASTA GLIBC PARA O DIRETORIO DA APLICAÇÃO EM BUILD
+
 echo
 
 cp $SCRIPT_APP_FILE_NAME $SCRIPT_APP_FILE
@@ -69,6 +88,9 @@ echo "Copiado: $SCRIPT_APP_FILE_NAME para pasta de build"
 
 cp -r $GLIBC_FOLDER $APP_DIR/$GLIBC_FOLDER
 echo "Copiado: $GLIBC_FOLDER para pasta de build"
+
+
+# EMPACOTANDO EM .TAR.GZ
 
 cd $BUILD_FOLDER
 
@@ -78,18 +100,63 @@ echo "Empacotando... $APP_DIR.tar.gz"
 tar -czf "$APP_FOLDER.tar.gz" $APP_FOLDER
 echo "Finalizado." 
 
-cd ..
+cd - &> /dev/null
 
 echo
-cp -r $DEB_FOLDER/* $DEB_APP_DIR/
+
+
+# COPIANDO A APLICACAO CONSTRUIDA PARA A PASTA DEB DE BUILD
+
+mkdir -p $DEB_APP_DIR/opt
+
 cp -r $APP_DIR "$DEB_APP_DIR/opt"
-echo "Copiado: $DEB_FOLDER/* para pasta $DEB_APP_DIR"
 echo "Copiado: $APP_DIR para pasta $DEB_APP_DIR/opt"
+
+
+# GERANDO LINK SIMBOLICO PARA SCRIPT PRINCIPAL DO .DEB
+
+mkdir -p $DEB_APP_DIR/usr/bin
+
+cd $DEB_APP_DIR/usr/bin
+ln -s $DEB_SCRIPT_APP_FILE .
+cd - &> /dev/null
+
+
+# GERANDO DESKTOP FILE
+
+mkdir -p $DEB_APP_DIR/usr/share/applications
+
+echo "[Desktop Entry]" >> $DEB_DESKTOP_FILE
+echo "Name=$DESKTOP_APP_NAME" >> $DEB_DESKTOP_FILE
+echo "Version=$VERSION" >> $DEB_DESKTOP_FILE
+echo "Exec=/opt/$APP_FOLDER/$SCRIPT_APP_FILE_NAME" >> $DEB_DESKTOP_FILE
+echo "Icon=/opt/$APP_FOLDER/icon.ico" >> $DEB_DESKTOP_FILE
+echo "Type=Application" >> $DEB_DESKTOP_FILE
+echo "Terminal=false" >> $DEB_DESKTOP_FILE
+echo "Keywords=Xadrez;Games;C++" >> $DEB_DESKTOP_FILE
+
+
+# GERANDO O ARQUIVO CONTROL DO .DEB
+
+mkdir -p $DEB_APP_DIR/DEBIAN
+
+echo "Package: $CONTROL_PACKAGE_NAME" >> $DEB_CONTROL_FILE
+echo "Version: $VERSION" >> $DEB_CONTROL_FILE
+echo "Section: games" >> $DEB_CONTROL_FILE
+echo "Architecture: amd64" >> $DEB_CONTROL_FILE
+echo "Installed-Size: $CONTROL_INSTALLED_SIZE" >> $DEB_CONTROL_FILE
+echo "Maintainer: $CONTROL_MAINTAINER" >> $DEB_CONTROL_FILE
+echo "Description: $CONTROL_DESCRIPTION" >> $DEB_CONTROL_FILE
+
+# EMPACOTANDO EM .DEB
 
 echo
 echo "Empacotando... $APP_DIR.deb"
 dpkg-deb -b "$DEB_APP_DIR/" "$APP_DIR.deb"
 echo "Finalizado."
+
+
+# BUILD CONCLUIDO
 
 echo
 echo "Build concluido!"

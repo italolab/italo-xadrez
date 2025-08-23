@@ -1,7 +1,0 @@
-Package: italo-xadrez
-Version: 2.2
-Section: games
-Architecture: amd64
-Installed-Size: 192512
-Maintainer: Italo Herbert Siqueira Gabriel
-Description: Trata-se de um jogo de xadrez com inteligência artificial
