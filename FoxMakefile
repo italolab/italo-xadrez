@@ -1,0 +1,65 @@
+$target=release
+$version=2.2
+
+IF os == "windows"
+	$so=windows
+ENDIF
+IF os != "windows"
+	$so=linux
+ENDIF
+
+$arch=x64
+
+compiler=g++
+
+IF os == "windows"
+	output.file.name=italo-xadrez.exe
+ENDIF
+IF os != "windows"
+	output.file.name=italo-xadrez-app
+ENDIF
+
+src.dir=src
+build.dir=build/italo-xadrez-$(version)-$(so)-$(arch)
+
+build.files=icon.ico icon.xpm assets/
+
+$debug_bin_dir=bin/Debug
+$debug_obj_dir=obj/Debug
+$debug_compiler_params=-Wall -fexceptions -g -std=c++17
+
+IF os == "windows"
+	$debug_linker_params=-mwindows
+ENDIF
+IF os != "windows"
+	$debug_linker_params=\$(sdl2-config --cflags --libs)
+ENDIF
+
+$release_bin_dir=bin/Release
+$release_obj_dir=obj/Release
+$release_compiler_params=-Wall -fexceptions -O2 -std=c++17
+
+IF os == "windows"
+	$release_linker_params=-s -mwindows
+ENDIF
+IF os != "windows"
+	$release_linker_params=-s \$(sdl2-config --cflags --libs)
+ENDIF
+
+bin.dir=$($(target)_bin_dir)
+obj.dir=$($(target)_obj_dir)
+compiler.params=$($(target)_compiler_params)
+linker.params=$($(target)_linker_params)
+
+include.dirs=include
+
+IF os == "windows"
+	lib.dirs=lib
+	libs=mingw32 SDL2main SDL2 SDL2_mixer SDL2_image SDL2_ttf
+ENDIF
+IF os != "windows"
+	lib.dirs=. lib /lib/x86_64-linux-gnu /usr/lib
+	libs=SDL2main SDL2 SDL2_mixer SDL2_image SDL2_ttf
+ENDIF
+
+

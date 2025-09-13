@@ -1,1 +1,0 @@
-.\cbuild.exe buildall --settings-file=settings-windows.txt

@@ -1,20 +1,23 @@
 #!/bin/bash
 
 VERSION=2.2
+SO=linux
+ARCH=x64
 
-CONTROL_PACKAGE_NAME=italo-xadrez
-CONTROL_INSTALLED_SIZE=192512
-CONTROL_MAINTAINER="Italo Herbert Siqueira Gabriel (italoherbert@outlook.com)"
-CONTROL_DESCRIPTION="Trata-se de um jogo de xadrez com inteligência artificial"
+PROJ_NAME=italo-xadrez
 
-DESKTOP_APP_NAME="Italo Xadrez"
+DEB_CONTROL_PACKAGE_NAME=$PROJ_NAME
+DEB_CONTROL_INSTALLED_SIZE=192512
+DEB_CONTROL_MAINTAINER="Italo Herbert Siqueira Gabriel (italoherbert@outlook.com)"
+DEB_CONTROL_DESCRIPTION="Trata-se de um jogo de xadrez com inteligência artificial"
 
+DEB_DESKTOP_APP_NAME="Italo Xadrez"
 
 BUILD_FOLDER=build
-APP_FOLDER=italo-xadrez-$VERSION-x64
+APP_FOLDER=$PROJ_NAME-$VERSION-$SO-$ARCH
 GLIBC_FOLDER=glibc-2.39
 
-SCRIPT_APP_FILE_NAME=italo-xadrez
+SCRIPT_APP_FILE_NAME=$PROJ_NAME
 
 APP_DIR=$BUILD_FOLDER/$APP_FOLDER
 
@@ -66,7 +69,7 @@ echo
 
 # COMPILANDO...
 
-./cbuild buildall --settings-file=settings-linux.txt
+./foxmake buildall --script=FoxMakefile
 
 # COPIANDO BIBLIOTECAS DINAMICAS DE QUE O EXECUTAVEL DEPENDE
 
@@ -127,7 +130,7 @@ cd - &> /dev/null
 mkdir -p $DEB_APP_DIR/usr/share/applications
 
 echo "[Desktop Entry]" >> $DEB_DESKTOP_FILE
-echo "Name=$DESKTOP_APP_NAME" >> $DEB_DESKTOP_FILE
+echo "Name=$DEB_DESKTOP_APP_NAME" >> $DEB_DESKTOP_FILE
 echo "Version=$VERSION" >> $DEB_DESKTOP_FILE
 echo "Exec=/opt/$APP_FOLDER/$SCRIPT_APP_FILE_NAME" >> $DEB_DESKTOP_FILE
 echo "Icon=/opt/$APP_FOLDER/icon.ico" >> $DEB_DESKTOP_FILE
@@ -140,13 +143,13 @@ echo "Keywords=Xadrez;Games;C++" >> $DEB_DESKTOP_FILE
 
 mkdir -p $DEB_APP_DIR/DEBIAN
 
-echo "Package: $CONTROL_PACKAGE_NAME" >> $DEB_CONTROL_FILE
+echo "Package: $DEB_CONTROL_PACKAGE_NAME" >> $DEB_CONTROL_FILE
 echo "Version: $VERSION" >> $DEB_CONTROL_FILE
 echo "Section: games" >> $DEB_CONTROL_FILE
 echo "Architecture: amd64" >> $DEB_CONTROL_FILE
-echo "Installed-Size: $CONTROL_INSTALLED_SIZE" >> $DEB_CONTROL_FILE
-echo "Maintainer: $CONTROL_MAINTAINER" >> $DEB_CONTROL_FILE
-echo "Description: $CONTROL_DESCRIPTION" >> $DEB_CONTROL_FILE
+echo "Installed-Size: $DEB_CONTROL_INSTALLED_SIZE" >> $DEB_CONTROL_FILE
+echo "Maintainer: $DEB_CONTROL_MAINTAINER" >> $DEB_CONTROL_FILE
+echo "Description: $DEB_CONTROL_DESCRIPTION" >> $DEB_CONTROL_FILE
 
 # EMPACOTANDO EM .DEB
 
