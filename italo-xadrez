@@ -6,6 +6,8 @@ CURR_DIR=$(dirname "$CURR_PATH")
 export LIBGL_ALWAYS_SOFTWARE=1
 export LD_LIBRARY_PATH=$CURR_DIR/libs:$LD_LIBRARY_PATH
 
+export ALSA_CONFIG_PATH=$CURR_DIR/assets/alsa/alsa.conf
+
 cd $CURR_DIR
 
 ./glibc-2.39/lib/ld-linux-x86-64.so.2 --inhibit-cache ./italo-xadrez-app
