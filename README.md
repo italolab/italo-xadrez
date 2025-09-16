@@ -68,7 +68,7 @@ Para executar no tinycorelinux, é necessário baixar a versão .tar.gz, extrair
 sh ./italo-xadrez
 ```
 
-Atenção: Para funcionar no tinycorelinux, é necessário estar utilizando o tinycorelinux, versão x64, ao invés da versão i686. Você pode descobrir se a arquitetura é x86_64 ou i686 executando o seguinte comando:
+<b>Atenção</b>: Para funcionar no tinycorelinux, é necessário estar utilizando o tinycorelinux, versão x64, ao invés da versão i686. Você pode descobrir se a arquitetura é x86_64 ou i686 executando o seguinte comando:
 
 ```
 uname -a
