@@ -58,7 +58,7 @@ cd italo-xadrez-2.2
 
 ## Dependencia da ALSA
 
-Para executar no tinycorelinux, ou outra distribuição linux que não tenha a ALSA - Advanced Linux Sound Architecture - instalada, é necessário instalá-la. Em outras distribuições linux, geralmente, a ALSA já vem instalada por padrão.
+Para executar no tinycorelinux, ou outra distribuição linux que não tenha a ALSA - Advanced Linux Sound Architecture - instalada, é necessário instalá-la. Em outras distribuições linux, geralmente a ALSA já vem instalada por padrão.
 
 ## Executando no tinycorelinux
 
