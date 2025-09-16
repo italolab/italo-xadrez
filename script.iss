@@ -4,7 +4,7 @@
 #define MyAppName "Italo Xadrez"
 #define MyAppVersion "2.2"
 #define MyAppPublisher "Italo Herbert"
-#define MyAppURL "https://github.com/italoherbert/italo-xadrez"
+#define MyAppURL "https://github.com/italolab/italo-xadrez"
 #define MyAppExeName "italo-xadrez.exe"
 
 #define WindowsArch "windows-x64"
@@ -33,7 +33,7 @@ ArchitecturesInstallIn64BitMode=x64compatible
 DisableProgramGroupPage=yes
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
-OutputDir=deploy
+OutputDir=build
 OutputBaseFilename=italo-xadrez-2.2-{#WindowsArch}
 SetupIconFile=build\italo-xadrez-2.2-{#WindowsArch}\icon.ico
 SolidCompression=yes

@@ -22,7 +22,12 @@ ENDIF
 src.dir=src
 build.dir=build/italo-xadrez-$(version)-$(so)-$(arch)
 
-build.files=icon.ico icon.xpm assets/
+IF os == "windows"
+	build.files=icon.ico icon.xpm assets/ lib/SDL2.dll lib/SDL2_image.dll lib/SDL2_mixer.dll lib/SDL2_ttf.dll 
+ENDIF
+IF os != "windows"
+	build.files=icon.ico icon.xpm assets/
+ENDIF
 
 $debug_bin_dir=bin/Debug
 $debug_obj_dir=obj/Debug
@@ -60,6 +65,10 @@ ENDIF
 IF os != "windows"
 	lib.dirs=. lib /lib/x86_64-linux-gnu /usr/lib
 	libs=SDL2main SDL2 SDL2_mixer SDL2_image SDL2_ttf
+ENDIF
+
+IF os == "windows"
+	resource.file=icon.res
 ENDIF
 
 
