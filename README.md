@@ -56,6 +56,24 @@ cd italo-xadrez-2.2
 ./italo-xadrez
 ```
 
+## Dependencia da ALSA
+
+Para executar no tinycorelinux, ou outra distribuição linux que não tenha a ALSA - Advanced Linux Sound Architecture - instalada, é necessário instalar a ALSA. Em outras distribuições linux, geralmente, a ALSA já vem instalada por padrão.
+
+## Executando no tinycorelinux
+
+Para executar o script italo-xadrez no tinycorelinux, é necessário utilizar o programa sh, conforme a seguir:
+
+```
+sh ./italo-xadrez
+```
+
+Atenção: Para funcionar no tinycorelinux, é necessário estar utilizando o tinycorelinux, versão x64, ao invés da versão i686. Você pode descobrir se a arquitetura é x86_64 ou i686 executando o seguinte comando:
+
+```
+uname -a
+```
+
 ## Estrutura do projeto
 
 <ul>
