@@ -62,7 +62,7 @@ Para executar no tinycorelinux, ou outra distribuição linux que não tenha a A
 
 ## Executando no tinycorelinux
 
-Para executar o script italo-xadrez no tinycorelinux, é necessário utilizar o programa sh, conforme a seguir:
+Para executar no tinycorelinux, é necessário baixar a versão .tar.gz, extrair, e utilizar o programa sh, conforme a seguir:
 
 ```
 sh ./italo-xadrez
